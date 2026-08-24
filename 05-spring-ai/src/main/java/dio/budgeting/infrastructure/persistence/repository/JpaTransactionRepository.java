@@ -29,4 +29,9 @@ public class JpaTransactionRepository implements TransactionRepository {
                 .map(TransactionEntity::toDomain)
                 .toList();
     }
+
+    @Override
+    public long sumAmountByCategory(Category category) {
+        return transactionEntityRepository.sumAmountByCategory(category);
+    }
 }

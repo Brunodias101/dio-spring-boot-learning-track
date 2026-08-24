@@ -11,6 +11,9 @@ public record TransactionOutput(String id, String description, String category, 
                 transaction.getId().uuid().toString(),
                 transaction.getDescription(),
                 transaction.getCategory().name(),
-                BigDecimal.valueOf(transaction.getAmount()).setScale(2, RoundingMode.HALF_UP).doubleValue());
+                BigDecimal.valueOf(transaction.getAmount())
+                        .divide(BigDecimal.valueOf(100))
+                        .setScale(2, RoundingMode.HALF_UP)
+                        .doubleValue());
     }
 }
